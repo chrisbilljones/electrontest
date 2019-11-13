@@ -1,14 +1,31 @@
 {
   "name": "electron-test",
   "version": "1.0.0",
-  "description": "",
+  "description": "yoyo",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --publish always",
+    "postinstall": "electron-builder install-app-deps"
   },
-  "author": "",
+  "author": "jones",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^7.1.1"
+    "electron": "^7.1.1",
+    "electron-builder": "^22.1.0"
+  },
+  "build": {
+    "appId": "the.electrontest",
+    "artifactName": "Electron Test Setup 1.0.0.exe",
+    "productName": "Electron Test",
+    "asar": true,
+    "win": {
+      "target": "nsis",
+      "publish": ["github"]
+    }
+  },
+  "dependencies": {
+    "electron-updater": "^4.2.0"
   }
 }
